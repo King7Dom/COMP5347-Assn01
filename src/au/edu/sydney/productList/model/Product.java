@@ -6,6 +6,7 @@ public class Product {
 	float price;
 	float averageRating;
 	int numberOfRatings;
+	int[] ratings;
 	
 	public Product(String name, String imageURL, float price, float rating, int numberOfRatings) {
 		this.name = name;
@@ -13,6 +14,7 @@ public class Product {
 		this.price = price;
 		this.averageRating = rating;
 		this.numberOfRatings = numberOfRatings;
+		this.ratings = new int[5];
 	}
 	
 	public String getName() {
@@ -48,5 +50,13 @@ public class Product {
 	}
 	public void setNumberOfRatings(int numberOfRatings) {
 		this.numberOfRatings = numberOfRatings;
+	}
+
+	public int[] getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(int[] ratings) {
+		this.ratings = ratings;
 	}
 }

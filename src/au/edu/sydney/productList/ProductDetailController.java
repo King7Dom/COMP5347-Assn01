@@ -30,6 +30,7 @@ public class ProductDetailController extends HttpServlet {
 		Product[] productList = (Product[]) getServletContext().getAttribute("productList");
 		Product product = productList[productNum];
 		request.setAttribute("product", product);
+		request.setAttribute("productNum", productNum);
 		RequestDispatcher view = request.getRequestDispatcher("/productDetail.jsp");
 		view.forward(request,response);
 	}

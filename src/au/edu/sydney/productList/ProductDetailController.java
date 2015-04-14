@@ -31,6 +31,20 @@ public class ProductDetailController extends HttpServlet {
 		Product product = productList[productNum];
 		request.setAttribute("product", product);
 		request.setAttribute("productNum", productNum);
+		
+		// Find out the highest number of ratings for one particular score
+		int maxNumOfRating = 0;
+		int[] ratings = product.getRatings();
+		for (int i = 0; i < ratings.length; i++) {
+			if (ratings[i] > maxNumOfRating) {
+				maxNumOfRating = ratings[i];
+			}
+		}
+		request.setAttribute("maxNumOfRating", maxNumOfRating);
+		// This is the style that progress bar should be in
+		String[] progressBarStyles = {"progress-bar-danger", "progress-bar-danger progress-bar-striped", "progress-bar-warning", "progress-bar-success", "progress-bar-success progress-bar-striped"};
+		request.setAttribute("progressBarStyles", progressBarStyles);
+		
 		RequestDispatcher view = request.getRequestDispatcher("/productDetail.jsp");
 		view.forward(request,response);
 	}

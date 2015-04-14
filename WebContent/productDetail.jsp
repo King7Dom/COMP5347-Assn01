@@ -87,31 +87,13 @@
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-4">
+				<c:forEach var="progressBarStyle" items="${progressBarStyles}" varStatus="progressBarStatus">
 				<div class="progress">
-					<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${product.ratings[4] / product.numberOfRatings * 100}" aria-valuemin="0" aria-valuemax="100" style="width: ${product.ratings[4] / product.numberOfRatings * 100}%">
-						<span>${product.ratings[3] / product.numberOfRatings * 100}%</span>
+					<div class="progress-bar ${progressBarStyle}" role="progressbar" aria-valuenow="${product.ratings[progressBarStatus.index]}" aria-valuemin="0" aria-valuemax="${maxNumOfRating}" style="width: ${(product.ratings[progressBarStatus.index] / maxNumOfRating) * 100}%">
+						<span>${product.ratings[progressBarStatus.index]}</span>
 					</div>
 				</div>
-				<div class="progress">
-					<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${product.ratings[3] / product.numberOfRatings * 100}" aria-valuemin="0" aria-valuemax="100" style="width: ${product.ratings[3] / product.numberOfRatings * 100}%">
-						<span>${product.ratings[3] / product.numberOfRatings * 100}%</span>
-					</div>
-				</div>
-				<div class="progress">
-					<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${product.ratings[2] / product.numberOfRatings * 100}" aria-valuemin="0" aria-valuemax="100" style="width: ${product.ratings[2] / product.numberOfRatings * 100}%">
-						<span>${product.ratings[2] / product.numberOfRatings * 100}%</span>
-					</div>
-				</div>
-				<div class="progress">
-					<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${(product.ratings[1] / product.numberOfRatings) * 100}" aria-valuemin="0" aria-valuemax="100" style="width: ${product.ratings[1] / product.numberOfRatings * 100}%">
-						<span>${product.ratings[1] / product.numberOfRatings * 100}%</span>
-					</div>
-				</div>
-				<div class="progress">
-					<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${product.ratings[0] / product.numberOfRatings * 100}" aria-valuemin="0" aria-valuemax="100" style="width: ${product.ratings[0] / product.numberOfRatings * 100}%">
-						<span>${product.ratings[0] / product.numberOfRatings * 100}%</span>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 		<footer class="footer">

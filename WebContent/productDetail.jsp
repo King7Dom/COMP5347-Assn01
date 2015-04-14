@@ -13,6 +13,7 @@
 <body>
 	<div class="container">
 		<div class="page-header text-center">
+			<small><a href="productListing">Product Listing</a></small>
 			<h1>${product.name}</h1>
 		</div>
 		<div class="img-hero-wrapper img-rounded">

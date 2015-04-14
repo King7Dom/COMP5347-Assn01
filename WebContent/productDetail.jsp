@@ -54,14 +54,14 @@
 				<div class="row">
 					<h3>Your Rating</h3>
 					<c:choose>
-						<c:when test="${sessionScope.userRating[product.name]}">
-							<h3>${sessionScope.userRating[product.name]}</h3>
+						<c:when test="${sessionScope.userRating[productNum] != 0 && sessionScope.userRating != null}">
+							<h3>${sessionScope.userRating[productNum]}</h3>
 							<c:forEach begin="1" end="5" varStatus="loop">
 								<c:choose>
-									<c:when test="${sessionScope.userRating[product.name] >= loop.count}">
+									<c:when test="${sessionScope.userRating[productNum] >= loop.count}">
 										<i class="fa fa-star"></i>
 									</c:when>
-									<c:when test="${sessionScope.userRating[product.name] > (loop.index - 1)}">
+									<c:when test="${sessionScope.userRating[productNum] > (loop.index - 1)}">
 										<i class="fa fa-star-half-o"></i>
 									</c:when>
 									<c:otherwise>

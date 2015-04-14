@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import au.edu.sydney.productList.model.Product;
 
@@ -42,6 +43,20 @@ public class ProductRatingController extends HttpServlet {
 		product.setNumberOfRatings(product.getNumberOfRatings() + 1);
 		float newTotal = oldTotal + rating;
 		product.setAverageRating(newTotal / product.getNumberOfRatings());
+		
+		HttpSession session = request.getSession();
+		int[] userRating = (int[]) session.getAttribute("userRating");
+		if (userRating == null) {
+			System.out.println("New Rating");
+			userRating = new int[5];
+			session.setAttribute("userRating", userRating);
+		}
+		
+		if (userRating[productNum] == 0) {
+			userRating[productNum] = rating;
+		} else {
+			System.out.println("User shouldn't be able to rate a product more than once");
+		}
 		
 		response.sendRedirect("productDetail?product="+Integer.valueOf(productNum).toString());
 	}

@@ -4,16 +4,21 @@ public class Product {
 	String name;
 	String imageURL;
 	float price;
+	int year;
+	float height;
+	float width;
+	float depth;
 	float averageRating;
 	int numberOfRatings;
 	int[] ratings;
 	
-	public Product(String name, String imageURL, float price, float rating, int numberOfRatings) {
+	public Product(String name, String imageURL, float price, float width, float height, float depth) {
 		this.name = name;
 		this.imageURL = imageURL;
 		this.price = price;
-		this.averageRating = rating;
-		this.numberOfRatings = numberOfRatings;
+		this.width = width;
+		this.height = height;
+		this.depth = depth;
 		this.ratings = new int[5];
 	}
 	
@@ -39,6 +44,38 @@ public class Product {
 	public void setPrice(float price) {
 		this.price = price;
 	}
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public float getHeight() {
+		return height;
+	}
+
+	public void setHeight(float height) {
+		this.height = height;
+	}
+
+	public float getWidth() {
+		return width;
+	}
+
+	public void setWidth(float width) {
+		this.width = width;
+	}
+
+	public float getDepth() {
+		return depth;
+	}
+
+	public void setDepth(float depth) {
+		this.depth = depth;
+	}
+
 	public float getAverageRating() {
 		return averageRating;
 	}

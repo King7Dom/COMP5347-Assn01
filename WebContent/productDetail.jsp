@@ -28,6 +28,7 @@
 					<!-- List group -->
 					<ul class="list-group">
 						<li class="list-group-item">Price: $${product.price}</li>
+						<li class="list-group-item">Dimensions (mm): ${product.width} x ${product.height} x ${product.depth}</li>
 					</ul>
 				</div>
 			</div>

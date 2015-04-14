@@ -90,6 +90,7 @@
 			</div>
 			<div class="col-sm-12 col-md-4">
 				<c:forEach var="progressBarStyle" items="${progressBarStyles}" varStatus="progressBarStatus">
+				${progressBarStatus.count} <i class="fa fa-star"></i>
 				<div class="progress">
 					<div class="progress-bar ${progressBarStyle}" role="progressbar" aria-valuenow="${product.ratings[progressBarStatus.index]}" aria-valuemin="0" aria-valuemax="${maxNumOfRating}" style="width: ${(product.ratings[progressBarStatus.index] / maxNumOfRating) * 100}%">
 						<span>${product.ratings[progressBarStatus.index]}</span>
